@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Outfit&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -18,10 +21,83 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  background: rgb(27, 83, 122);
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    90deg,
+    rgba(27, 83, 122, 1) 0%,
+    rgba(62, 131, 145, 1) 48%,
+    rgba(27, 177, 186, 1) 100%
+  );
+  font-family: "Outfit", sans-serif;
+  /* font-family: "Inter", sans-serif; */
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+}
+
+.navbar li {
+  float: right;
+}
+
+.navbar a {
+  display: block;
+  padding-left: 20px;
+}
+.navbar a:last-child {
+  padding-right: 100px;
+}
+
+.head-image {
+  float: right;
+}
+.head-image img {
+  border-radius: 20px;
+  width: 600px;
+}
+
+.head-text {
+  display: inline-block;
+  /* border: 2px solid white; */
+  /* margin-left: 100px; */
+  margin-top: 50px;
+  font-size: 100px;
+  font-weight: bold;
+  line-height: 100px;
+  padding-top: 100px;
+}
+
+.tagline {
+  /* border: 1px solid white; */
+  font-size: 50px;
+  /* display: inline-block; */
+}
+
+.head-content {
+  display: inline-block;
+  /* border: 1px solid white; */
+  margin-left: 100px;
+}
+
+.btns {
+  /* border: 1px solid white; */
+  padding: 20px;
+}
+
+.btn {
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.adopt-btn {
+  margin-left: 70px; /* float: right; */
 }
