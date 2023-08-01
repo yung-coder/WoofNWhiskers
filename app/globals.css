@@ -20,14 +20,18 @@
 }
 
 .main {
+  min-height: 100vh;
+  display: flex;
+    flex-direction: column;
   background-image: url("../public/assets/dog.jpg");
-  background-position: center center;
   background-size: cover;
+  background-position: center;
+  /* object-fit: cover; */
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* background-attachment: fixed ; */
 }
 
-body { 
+body {
   margin: 0px;
   /* font-family: "Inter", sans-serif; */
 }
