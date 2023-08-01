@@ -19,16 +19,15 @@
   }
 }
 
+.main {
+  background-image: url("../public/assets/dog.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(27, 83, 122);
-  background: linear-gradient(
-    90deg,
-    rgba(27, 83, 122, 1) 0%,
-    rgba(62, 131, 145, 1) 48%,
-    rgba(27, 177, 186, 1) 100%
-  );
-  font-family: "Outfit", sans-serif;
   /* font-family: "Inter", sans-serif; */
 }
 
