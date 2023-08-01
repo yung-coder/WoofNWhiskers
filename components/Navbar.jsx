@@ -13,13 +13,13 @@ const Navbar = () => {
         variants={navVariants}
         initial="hidden"
         whileInView="show"
-        className={`py-4 text-white  backdrop-blur-md border-t-0  border-b-gray-200 `}
+        className={`py-4 border-b-2 border-t-gray-900 text-white   backdrop-blur-lg border-b-white `}
       >
-        <div className="flex justify-around p-2">
-          <div>
+        <div className="flex justify-around ">
+          <div className="p-2">
             <h2>Logo</h2>
           </div>
-          <div>
+          <div className="p-2">
             <ul className="flex space-x-5">
               <li>
                 <a href="#home">Home</a>
@@ -35,9 +35,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="flex space-x-2 ">
-            <button type="">Login</button>
-            <button type="">Register</button>
+          <div>
+            <button type="" className="border px-2 py-2">Login</button>
           </div>
         </div>
       </motion.nav>

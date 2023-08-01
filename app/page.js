@@ -8,6 +8,8 @@ import { Inter } from "next/font/google";
 import { TypingText } from "@/components/CustomTexts";
 import { fadeIn, staggerContainer } from "@/utils/motion";
 import { motion } from "framer-motion";
+import { slideIn } from "@/utils/motion";
+import { planetVariants } from "@/utils/motion";
 
 const outfit = Outfit({
   weight: ["400"],
@@ -33,9 +35,18 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className={` ${Jose.className}  main w-full  h-screen`}>
+    <motion.div
+      className={` ${Jose.className}  main w-full  h-screen`}
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: "false", amount: 0.25 }}
+    >
       <Navbar />
-      <div className="w-96 h-full  backdrop-blur-md flex flex-col">
+      <motion.div
+        className="w-96 h-full  backdrop-blur-md flex flex-col border-r-2"
+        variants={planetVariants("left")}
+      >
         <motion.div
           variants={staggerContainer}
           initial="hidden"
@@ -67,11 +78,11 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.25 }}
-          className="p-5 flex flex-col space-y-6 justify-center items-center"
+          className="p-9 flex flex-col space-y-16 justify-center items-center"
         >
           <motion.p
             variants={fadeIn("up", "tween", 0.2, 1)}
-            className="text-base text-center text-white"
+            className="text-lg text-center text-white"
           >
             Every product is built from the ground up to protect your{" "}
             . We don't create user profiles, sell personal information or share
@@ -91,7 +102,7 @@ export default function Home() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.25 }}
-          className="w-full h-full flex flex-col text-white space-y-5 justify-center items-center"
+          className="w-full h-full flex  text-white space-x-5 justify-center items-center"
         >
           <motion.a
             variants={fadeIn("up", "tween", 0.3, 1)}
@@ -121,7 +132,7 @@ export default function Home() {
             </span>
           </motion.a>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
