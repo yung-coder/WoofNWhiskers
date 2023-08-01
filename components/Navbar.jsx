@@ -4,6 +4,8 @@ import { navVariants } from "@/utils/motion";
 import React from "react";
 import { motion } from "framer-motion";
 
+
+
 const Navbar = () => {
   return (
     <>
@@ -11,9 +13,9 @@ const Navbar = () => {
         variants={navVariants}
         initial="hidden"
         whileInView="show"
-        className={`py-5  border border-black`}
+        className={`py-4 text-white  backdrop-blur-md border-t-0  border-b-gray-200 `}
       >
-        <div className="flex justify-between p-1">
+        <div className="flex justify-around p-2">
           <div>
             <h2>Logo</h2>
           </div>
@@ -33,11 +35,9 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div>
-            <div>
-              <button type="">Login</button>
-              <button type="">Register</button>
-            </div>
+          <div className="flex space-x-2 ">
+            <button type="">Login</button>
+            <button type="">Register</button>
           </div>
         </div>
       </motion.nav>

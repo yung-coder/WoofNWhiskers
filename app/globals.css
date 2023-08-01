@@ -27,7 +27,8 @@
   background-attachment: fixed;
 }
 
-body {
+body { 
+  margin: 0px;
   /* font-family: "Inter", sans-serif; */
 }
 
