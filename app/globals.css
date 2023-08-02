@@ -101,3 +101,23 @@ body {
 .adopt-btn {
   margin-left: 70px; /* float: right; */
 }
+
+/* /////////////Register Form//////////////// */
+
+.formTitle {
+  text-align: center;
+  font-size: 80px;
+}
+
+.formContainer label {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.registerForm {
+  padding-left: 250px;
+}
+
+.registerForm input {
+  border-radius: 5px;
+}

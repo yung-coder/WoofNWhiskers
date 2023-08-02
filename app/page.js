@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -26,7 +27,9 @@ export default function Home() {
           </h1>
           <p className="tagline">Find a perfect pet for you</p>
           <div className="btns">
-            <button className="register-btn btn">Register a pet</button>
+            <Link href="/register">
+              <button className="register-btn btn">Register a pet</button>
+            </Link>
             <button className="adopt-btn btn">Adopt a pet</button>
           </div>
         </div>
