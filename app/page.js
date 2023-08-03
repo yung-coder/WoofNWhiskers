@@ -65,7 +65,7 @@ export default function Home() {
           </div>
           <div className="h-fit">
             <TypingText
-              title="Whiskers"
+              title="Whiskerssssssssssssss"
               textStyles="text-center text-white  text-3xl"
             />
           </div>
