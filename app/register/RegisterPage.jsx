@@ -94,15 +94,10 @@ const RegisterPage = () => {
 
   return (
     <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
-      <div class="container max-w-screen-lg mx-auto">
+      <div class="w-fit">
         <div>
           <div class="bg-white rounded shadow-lg p-4 px-4 text-gray-600 font-bold md:p-8 mb-6">
-            <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-              <div class="text-gray-600">
-                <p class="font-medium text-lg">Personal Details</p>
-                <p>Please fill out all the fields.</p>
-              </div>
-
+            <div class="text-sm w-full ">
               <div class="lg:col-span-2">
                 <div class="flex flex-col space-y-4">
                   <div class="md:col-span-6 flex flex-col  justify-between">
@@ -258,28 +253,30 @@ const RegisterPage = () => {
                     </div>
                   </div>
 
-                  <div class="md:col-span-1">
-                    <label for="zipcode">Zipcode</label>
-                    <input
-                      type="text"
-                      name="zipcode"
-                      id="zipcode"
-                      class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      placeholder=""
-                      value=""
-                    />
-                  </div>
+                  <div className="flex space-x-5">
+                    <div class="md:col-span-1">
+                      <label for="zipcode">Zipcode</label>
+                      <input
+                        type="text"
+                        name="zipcode"
+                        id="zipcode"
+                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        placeholder=""
+                        value=""
+                      />
+                    </div>
 
-                  <div class="md:col-span-1">
-                    <label for="zipcode">Age</label>
-                    <input
-                      type="text"
-                      name="zipcode"
-                      id="zipcode"
-                      class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      placeholder=""
-                      value=""
-                    />
+                    <div class="md:col-span-1">
+                      <label for="zipcode">Age</label>
+                      <input
+                        type="text"
+                        name="zipcode"
+                        id="zipcode"
+                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        placeholder=""
+                        value=""
+                      />
+                    </div>
                   </div>
 
                   <div>
