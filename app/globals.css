@@ -19,16 +19,20 @@
   }
 }
 
+.main {
+  min-height: 100vh;
+  display: flex;
+    flex-direction: column;
+  background-image: url("../public/assets/dog.jpg");
+  background-size: cover;
+  background-position: center;
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+  /* background-attachment: fixed ; */
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(27, 83, 122);
-  background: linear-gradient(
-    90deg,
-    rgba(27, 83, 122, 1) 0%,
-    rgba(62, 131, 145, 1) 48%,
-    rgba(27, 177, 186, 1) 100%
-  );
-  font-family: "Outfit", sans-serif;
+  margin: 0px;
   /* font-family: "Inter", sans-serif; */
 }
 
