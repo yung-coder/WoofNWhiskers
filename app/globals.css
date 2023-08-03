@@ -31,6 +31,23 @@
   /* background-attachment: fixed ; */
 }
 
+
+.mainreg {
+  min-height: 100vh;
+  display: flex;
+    flex-direction: column;
+  background-image: url("../public/assets/dog2.jpg");
+  background-size: cover;
+  background-position: center;
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+  /* background-attachment: fixed ; */
+}
+
+
+
+
+
 body {
   margin: 0px;
   /* font-family: "Inter", sans-serif; */

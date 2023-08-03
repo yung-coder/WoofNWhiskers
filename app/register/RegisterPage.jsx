@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import '../globals.css';
 
 const RegisterPage = () => {
   const [countries, setCountries] = useState([]);
@@ -93,10 +94,10 @@ const RegisterPage = () => {
   };
 
   return (
-    <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+    <div>
       <div class="w-fit">
         <div>
-          <div class="bg-white rounded shadow-lg p-4 px-4 text-gray-600 font-bold md:p-8 mb-6">
+          <div class="bg-blue-100  rounded-md shadow-lg p-4 px-4  text-gray-700 font-bold md:p-8 mb-6">
             <div class="text-sm w-full ">
               <div class="lg:col-span-2">
                 <div class="flex flex-col space-y-4">
@@ -280,13 +281,13 @@ const RegisterPage = () => {
                   </div>
 
                   <div>
-                    <label class="block text-sm font-medium text-white">
+                    <label class="block text-sm">
                       Image
                     </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                       <div class="space-y-1 text-center">
                         <svg
-                          class="mx-auto h-12 w-12 text-white"
+                          class="mx-auto h-12 w-12"
                           stroke="currentColor"
                           fill="none"
                           viewBox="0 0 48 48"
@@ -299,10 +300,10 @@ const RegisterPage = () => {
                             stroke-linejoin="round"
                           />
                         </svg>
-                        <div class="flex text-sm text-gray-600">
+                        <div class="flex text-sm ">
                           <label
                             for="file-upload"
-                            class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
+                            class="relative cursor-pointer bg-white rounded-md font-medium   focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                           >
                             <span class="">Upload a file</span>
                             <input
@@ -312,9 +313,9 @@ const RegisterPage = () => {
                               class="sr-only"
                             />
                           </label>
-                          <p class="pl-1 text-white">or drag and drop</p>
+                          <p class="pl-1">or drag and drop</p>
                         </div>
-                        <p class="text-xs text-white">
+                        <p class="text-xs">
                           PNG, JPG, GIF up to 10MB
                         </p>
                       </div>

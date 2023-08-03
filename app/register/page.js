@@ -1,10 +1,29 @@
+"use client";
+
 import RegisterPage from "./RegisterPage";
+import "../globals.css";
+import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
+import { motion } from "framer-motion";
+import { planetVariants, staggerContainer } from "@/utils/motion";
 
 const page = () => {
   return (
-    <div>
-      <RegisterPage />
-    </div>
+    <motion.div
+      className="mainreg  bg-gray-100 flex flex-col space-y-6"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: "false", amount: 0.25 }}
+    >
+      <Header />
+      <motion.div
+        className="w-full h-full p-6"
+        variants={planetVariants("left")}
+      >
+        <RegisterPage />
+      </motion.div>
+    </motion.div>
   );
 };
 

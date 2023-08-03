@@ -3,6 +3,7 @@
 import { navVariants } from "@/utils/motion";
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 
 
@@ -22,7 +23,7 @@ const Navbar = () => {
           <div className="p-2">
             <ul className="flex space-x-5">
               <li>
-                <a href="#home">Home</a>
+                <Link href={''}>Home</Link>
               </li>
               <li>
                 <a href="#news">News</a>
