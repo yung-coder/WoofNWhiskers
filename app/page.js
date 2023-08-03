@@ -1,3 +1,4 @@
+'use client'
 
 import "./globals.css";
 import { Josefin_Sans, Outfit, Poppins } from "@next/font/google";
@@ -7,6 +8,7 @@ import { fadeIn, staggerContainer } from "@/utils/motion";
 import { motion } from "framer-motion";
 import { slideIn } from "@/utils/motion";
 import { planetVariants } from "@/utils/motion";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({
   weight: ["400"],
@@ -65,7 +67,7 @@ export default function Home() {
           </div>
           <div className="h-fit">
             <TypingText
-              title="Whiskerssssssssssssss"
+              title="Whiskers"
               textStyles="text-center text-white  text-3xl"
             />
           </div>

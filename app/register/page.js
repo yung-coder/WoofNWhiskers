@@ -1,9 +1,10 @@
 import Register from "./Register";
+import RegisterPage from "./RegisterPage";
 
 const page = () => {
   return (
     <div>
-      <Register />
+      <RegisterPage />
     </div>
   );
 };

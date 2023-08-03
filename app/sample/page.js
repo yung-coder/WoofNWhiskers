@@ -42,9 +42,10 @@ const Register = () => {
         url: "https://city-and-state-search-api.p.rapidapi.com/states",
         params: { country_code: countryCode },
         headers: {
-          "X-RapidAPI-Key": API_KEY,
-          "X-RapidAPI-Host": API_HOST,
-        },
+      "X-RapidAPI-Key": "a6107d467amsh0dbe21c17dd43c0p164e6djsna12477fa8354",
+      "X-RapidAPI-Host": "city-and-state-search-api.p.rapidapi.com",
+    },
+
       };
       try {
         const response = await axios.request(stateOptions);
