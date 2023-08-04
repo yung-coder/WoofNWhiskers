@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import "./globals.css";
 import { Josefin_Sans, Outfit, Poppins } from "@next/font/google";
