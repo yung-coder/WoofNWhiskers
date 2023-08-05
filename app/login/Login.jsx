@@ -3,8 +3,38 @@
 import Image from "next/image";
 import React, { useState } from "react";
 
+import { SupabaseClient, createClient } from "@supabase/supabase-js";
+
 const Login = () => {
   const [Login, setLogin] = useState(false);
+  const [creds, setcreds] = useState({ email: "", password: "" });
+  const [inputs, setinputs] = useState({});
+  
+const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const SUPBASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+const client = createClient(SUPABASE_URL, SUPBASE_ANON_KEY);
+
+  const getinputs = (data) => {
+    const { value, name } = data.target;
+    const input = { [name]: value };
+    setinputs({ ...inputs, ...input });
+  };
+
+
+  const Register = async () => {
+
+    let { data, error } = await  client.auth.signUp({
+      email:  inputs.email,
+      password: inputs.password,
+    });
+
+    console.log(error);
+    console.log(data);
+  };
+
+  console.log(inputs);
+
   return (
     <div class="w-fit xl:w-3/4 lg:w-11/12 flex">
       <img
@@ -57,6 +87,8 @@ const Login = () => {
                   class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                   id="email"
                   type="email"
+                  name="email"
+                  onChange={getinputs}
                   placeholder="Email"
                 />
               </div>
@@ -71,32 +103,17 @@ const Login = () => {
                   <input
                     class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="password"
+                    name="password"
+                    onChange={getinputs}
                     type="password"
-                    placeholder="******************"
-                  />
-                  <p class="text-xs italic text-red-500">
-                    Please choose a password.
-                  </p>
-                </div>
-                <div class="md:ml-2">
-                  <label
-                    class="block mb-2 text-sm font-bold text-gray-700"
-                    for="c_password"
-                  >
-                    Confirm Password
-                  </label>
-                  <input
-                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                    id="c_password"
-                    type="password"
-                    placeholder="******************"
-                  />
+                  /> 
                 </div>
               </div>
               <div class="mb-6 text-center">
                 <button
                   class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                   type="button"
+                  onClick={Register}
                 >
                   Register Account
                 </button>
