@@ -16,7 +16,7 @@ const Navbar = () => {
         whileInView="show"
         className={`py-4 border-b-2 border-t-gray-900 text-white   backdrop-blur-lg border-b-white `}
       >
-        <div className="flex justify-around ">
+        <div className="flex justify-around items-center">
           <div className="p-2">
             <h2>Logo</h2>
           </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <button type="" className="border px-2 py-2">Login</button>
+            <Link type="" className="border px-2 py-2" href={'/login'}>Login</Link>
           </div>
         </div>
       </motion.nav>
