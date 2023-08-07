@@ -1,16 +1,16 @@
 "use  client";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 
 import { createClient } from "@supabase/supabase-js";
-import { useSnapshot } from "valtio";
-import state, { setLogedIn } from "@/store";
+import { snapshot, useSnapshot } from "valtio";
+import state, { add, setLogedIn } from "@/store";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [Login, setLogin] = useState(false);
   const [inputs, setinputs] = useState({});
-  const snap = useSnapshot(state);
+  const snap =  useSnapshot(state);
   const router = useRouter();
 
   const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -24,9 +24,6 @@ const Login = () => {
     setinputs({ ...inputs, ...input });
   };
 
-
-
-
   const Register = async () => {
     if (inputs.ConfirmPassword != inputs.password) {
       return;
@@ -37,8 +34,6 @@ const Login = () => {
       password: inputs.password,
     });
 
-
-
     router.push("/pets");
   };
 
@@ -47,7 +42,6 @@ const Login = () => {
       email: inputs.email,
       password: inputs.password,
     });
-
 
 
     router.push("/pets");

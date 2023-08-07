@@ -4,14 +4,13 @@ import { navVariants } from "@/utils/motion";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useSnapshot } from "valtio";
+import { subscribe, useSnapshot } from "valtio";
 import state from "@/store";
 
-
-
 const Navbar = () => {
-   const snap = useSnapshot(state);
+  const snap = useSnapshot(state);
   console.log(snap);
+
 
   return (
     <>
@@ -28,7 +27,7 @@ const Navbar = () => {
           <div className="p-2">
             <ul className="flex space-x-5">
               <li>
-                <Link href={''}>Home</Link>
+                <Link href={""}>Home</Link>
               </li>
               <li>
                 <a href="#news">News</a>
@@ -42,7 +41,9 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <Link type="" className="border px-2 py-2" href={'/login'}>{' '}</Link>
+            <Link type="" className="border px-2 py-2" href={"/login"}>
+              {" "}
+            </Link>
           </div>
         </div>
       </motion.nav>
