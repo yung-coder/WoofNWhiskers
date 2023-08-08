@@ -1,19 +1,21 @@
 "use client";
 
-import { navVariants } from "@/utils/motion";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useContext } from "react";
+
+// import { motion } from "framer-motion";
 import Link from "next/link";
 
+// import { navVariants } from "../utils/motion";
 
 const Navbar = () => {
-
+  let state = JSON.parse(localStorage.getItem("loginState"));
+  // if(state === "true") {
+  //    state = true;
+  // }
+  console.log(state);
   return (
     <>
-      <motion.nav
-        variants={navVariants}
-        initial="hidden"
-        whileInView="show"
+      <nav
         className={`py-4 border-b-2 border-t-gray-900 text-white   backdrop-blur-lg border-b-white `}
       >
         <div className="flex justify-around items-center">
@@ -37,12 +39,16 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <Link type="" className="border px-2 py-2" href={"/login"}>
-              {" "}
+            <Link
+              type=""
+              className="border px-2 py-2"
+              href={state === "true" ? "/" : "/login"}
+            >
+              {state === "true" ? "L" : "Login"}
             </Link>
           </div>
         </div>
-      </motion.nav>
+      </nav>
     </>
   );
 };

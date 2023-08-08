@@ -23,7 +23,7 @@
   min-height: 100vh;
   display: flex;
     flex-direction: column;
-  background-image: url("../public/assets/dog.jpg");
+  background-image: url("../../public/assets/dog.jpg");
   background-size: cover;
   background-position: center;
   /* object-fit: cover; */
@@ -36,7 +36,7 @@
   min-height: 100vh;
   display: flex;
     flex-direction: column;
-  background-image: url("../public/assets/dog2.jpg");
+  background-image: url('../../public/assets/dog2.jpg');
   background-size: cover;
   background-position: center;
   /* object-fit: cover; */

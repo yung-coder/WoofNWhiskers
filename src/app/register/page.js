@@ -2,11 +2,13 @@
 
 import RegisterPage from "./RegisterPage";
 import "../globals.css";
-import Header from "@/components/Header";
-import { motion } from "framer-motion";
-import { planetVariants, staggerContainer } from "@/utils/motion";
 
-export default async function page() {
+import { motion } from "framer-motion";
+
+import Header from "../../../components/Header";
+import { planetVariants, staggerContainer } from "../../../utils/motion";
+
+export default function page() {
   return (
     <>
       <motion.div
