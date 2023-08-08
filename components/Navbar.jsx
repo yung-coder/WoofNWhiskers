@@ -5,14 +5,16 @@ import React, { useContext } from "react";
 // import { motion } from "framer-motion";
 import Link from "next/link";
 
+
 // import { navVariants } from "../utils/motion";
 
 const Navbar = () => {
   let state = JSON.parse(localStorage.getItem("loginState"));
-  // if(state === "true") {
-  //    state = true;
-  // }
+
   console.log(state);
+
+
+
   return (
     <>
       <nav
@@ -41,10 +43,9 @@ const Navbar = () => {
           <div>
             <Link
               type=""
-              className="border px-2 py-2"
               href={state === "true" ? "/" : "/login"}
             >
-              {state === "true" ? "L" : "Login"}
+              {state === "true" ? <img src={`https://api.dicebear.com/6.x/avataaars/svg`} alt="dp" className="border rounded-full w-12 h-12 p-1"/> :  <p className="border px-2">Login</p>}
             </Link>
           </div>
         </div>

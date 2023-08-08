@@ -3,7 +3,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import '../globals.css';
+import "../globals.css";
 
 const RegisterPage = () => {
   const [countries, setCountries] = useState([]);
@@ -261,7 +261,7 @@ const RegisterPage = () => {
                         type="text"
                         name="zipcode"
                         id="zipcode"
-                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-fit bg-gray-50"
                         placeholder=""
                         value=""
                       />
