@@ -1,22 +1,25 @@
 "use  client";
 
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 
 import { createClient } from "@supabase/supabase-js";
-import { snapshot, useSnapshot } from "valtio";
-import state, { add, setLogedIn } from "@/store";
+
+
 import { useRouter } from "next/navigation";
+
+
 
 const Login = () => {
   const [Login, setLogin] = useState(false);
   const [inputs, setinputs] = useState({});
-  const snap =  useSnapshot(state);
   const router = useRouter();
 
   const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const SUPBASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   const client = createClient(SUPABASE_URL, SUPBASE_ANON_KEY);
+
+
 
   const getinputs = (data) => {
     const { value, name } = data.target;
@@ -169,7 +172,7 @@ const Login = () => {
                 <button
                   class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                   type="button"
-                  onClick={Signin}
+                  onClick={()=> setColor('blue')}
                 >
                   Sign In
                 </button>

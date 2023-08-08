@@ -4,13 +4,9 @@ import { navVariants } from "@/utils/motion";
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { subscribe, useSnapshot } from "valtio";
-import state from "@/store";
+
 
 const Navbar = () => {
-  const snap = useSnapshot(state);
-  console.log(snap);
-
 
   return (
     <>
