@@ -1,18 +1,18 @@
 import { supabaseClient } from "../../../supabase/supabase";
 
 async function getData() {
-
-  let { data, error } = await supabaseClient.from("animal ").select("*");
+  let { data, error } = await supabaseClient
+     .from('animals')
+     .select('*')
 
   console.log(error);
 
   return data;
 }
 
-
 export default async function Page() {
   const result = await getData();
- console.log(result);
+  console.log(result);
 
   return (
     <div>
