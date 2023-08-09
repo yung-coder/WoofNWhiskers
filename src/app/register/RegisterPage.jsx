@@ -4,6 +4,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../globals.css";
+import { getImgProps } from "next/dist/shared/lib/get-img-props";
 
 const RegisterPage = () => {
   const [countries, setCountries] = useState([]);
@@ -12,6 +13,16 @@ const RegisterPage = () => {
   const [stateList, setStateList] = useState([]);
   const [imageURL, setImageURL] = useState("");
   const [selectedState, setSelectedState] = useState("");
+  const [inputs, setinputs] = useState({});
+
+  const getinputs = (data) => {
+    let { value, name } = data.target;
+    if (name === "file-upload") {
+      value = handleFileChange(data);
+    }
+    const input = { [name]: value };
+    setinputs({ ...inputs, ...input });
+  };
 
   const animalsType = [
     {
@@ -87,11 +98,12 @@ const RegisterPage = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      // Create a URL for the selected image
       const imageURL = URL.createObjectURL(file);
-      setImageURL(imageURL);
+      return imageURL;
     }
   };
+
+  console.log(inputs, imageURL);
 
   return (
     <div>
@@ -105,12 +117,17 @@ const RegisterPage = () => {
                     <label for="full_name">Choose Animal</label>
                     <select
                       id="animal"
+                      name="animal"
+                      onChange={getinputs}
                       className="form-select block w-full rounded bg-gray-50 border  p-3 focus:bg-white"
                     >
                       <option value="">Select animal type</option>
                       {animalsType.map((animal) => {
                         return (
-                          <option value={animal.name} key={animal.name}>
+                          <option
+                            value={animal.name}
+                            key={animal.name}
+                          >
                             {animal.name}
                           </option>
                         );
@@ -122,10 +139,10 @@ const RegisterPage = () => {
                     <label for="full_name">Mention type if others</label>
                     <input
                       type="text"
-                      name="full_name"
-                      id="full_name"
+                      name="type"
+                      id="type"
+                      onChange={getinputs}
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
                     />
                   </div>
 
@@ -145,7 +162,8 @@ const RegisterPage = () => {
                             type="radio"
                             class="form-radio text-indigo-600"
                             name="radioOption"
-                            value="A"
+                            onChange={getinputs}
+                            value="Male"
                           />
                           <span class="ml-2">Male</span>
                         </label>
@@ -154,7 +172,8 @@ const RegisterPage = () => {
                             type="radio"
                             class="form-radio"
                             name="radioOption"
-                            value="B"
+                            onChange={getinputs}
+                            value="Female"
                           />
                           <span class="ml-2">Female</span>
                         </label>
@@ -166,10 +185,10 @@ const RegisterPage = () => {
                     <label for="city">Disease, if any</label>
                     <input
                       type="text"
-                      name="city"
-                      id="city"
+                      name="disease"
+                      id="disease"
+                      onChange={getinputs}
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
                       placeholder=""
                     />
                   </div>
@@ -180,8 +199,8 @@ const RegisterPage = () => {
                       type="text"
                       name="address"
                       id="address"
+                      onChange={getinputs}
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                      value=""
                       placeholder=""
                     />
                   </div>
@@ -193,8 +212,8 @@ const RegisterPage = () => {
                         type="text"
                         name="email"
                         id="email"
+                        onChange={getinputs}
                         class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
                         placeholder="email@domain.com"
                       />
                     </div>
@@ -205,8 +224,8 @@ const RegisterPage = () => {
                         type="text"
                         name="city"
                         id="city"
+                        onChange={getinputs}
                         class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                        value=""
                         placeholder=""
                       />
                     </div>
@@ -217,14 +236,20 @@ const RegisterPage = () => {
                       <label for="country">Country / region</label>
                       <select
                         id="country"
+                        name="country"
                         onChange={handleCountryChange}
+                        onChangeCapture={getinputs}
                         value={selectedCountry}
                         className="form-select block w-full rounded bg-gray-50 border  p-3 focus:bg-white"
                       >
                         <option value="">Select a Country</option>
                         {countries.map((country) => {
                           return (
-                            <option value={country.name} key={country.name}>
+                            <option
+                              onChange={getinputs}
+                              value={country.name}
+                              key={country.name}
+                            >
                               {country.name}
                             </option>
                           );
@@ -235,7 +260,9 @@ const RegisterPage = () => {
                     <div class="md:col-span-2">
                       <label for="state">State / province</label>
                       <select
-                        id="country"
+                        id="state"
+                        name="state"
+                        onChange={getinputs}
                         className="form-select block w-full rounded bg-gray-50 border  p-3 focus:bg-white "
                       >
                         <option value="">Select a state</option>
@@ -260,10 +287,10 @@ const RegisterPage = () => {
                       <input
                         type="text"
                         name="zipcode"
+                        onChange={getinputs}
                         id="zipcode"
                         class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-fit bg-gray-50"
                         placeholder=""
-                        value=""
                       />
                     </div>
 
@@ -271,11 +298,11 @@ const RegisterPage = () => {
                       <label for="zipcode">Age</label>
                       <input
                         type="text"
-                        name="zipcode"
-                        id="zipcode"
+                        name="age"
+                        id="age"
+                        onChange={getinputs}
                         class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                         placeholder=""
-                        value=""
                       />
                     </div>
                   </div>
@@ -311,6 +338,8 @@ const RegisterPage = () => {
                               name="file-upload"
                               type="file"
                               class="sr-only"
+                              value={imageURL}
+                              onChange={getinputs}
                             />
                           </label>
                           <p class="pl-1">or drag and drop</p>
