@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../globals.css";
 import { getImgProps } from "next/dist/shared/lib/get-img-props";
+import { supabaseClient } from "../../../supabase/supabase";
 
 const RegisterPage = () => {
   const [countries, setCountries] = useState([]);
@@ -17,11 +18,28 @@ const RegisterPage = () => {
 
   const getinputs = (data) => {
     let { value, name } = data.target;
-    if (name === "file-upload") {
+    if (name === "image") {
       value = handleFileChange(data);
     }
     const input = { [name]: value };
     setinputs({ ...inputs, ...input });
+  };
+
+  const onSumbit = async () => {
+    const { error } = await supabaseClient
+      .from("animals")
+      .insert({
+        type: inputs.animal,
+        address: inputs.address,
+        gender: inputs.radioOption,
+        sick: inputs.disease,
+        age: inputs.age,
+        city: inputs.city,
+        country: inputs.country,
+        state: inputs.state,
+        zipcode: inputs.zipcode,
+        image: inputs.image,
+      });
   };
 
   const animalsType = [
@@ -139,8 +157,8 @@ const RegisterPage = () => {
                     <label for="full_name">Mention type if others</label>
                     <input
                       type="text"
-                      name="type"
-                      id="type"
+                      name="animal"
+                      id="animal"
                       onChange={getinputs}
                       class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                     />
@@ -329,16 +347,15 @@ const RegisterPage = () => {
                         </svg>
                         <div class="flex text-sm ">
                           <label
-                            for="file-upload"
+                            for="image"
                             class="relative cursor-pointer bg-white rounded-md font-medium   focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
                           >
                             <span class="">Upload a file</span>
                             <input
-                              id="file-upload"
-                              name="file-upload"
+                              id="image"
+                              name="image"
                               type="file"
                               class="sr-only"
-                              value={imageURL}
                               onChange={getinputs}
                             />
                           </label>
@@ -353,7 +370,7 @@ const RegisterPage = () => {
 
                   <div class="md:col-span-5 text-right">
                     <div class="inline-flex items-end">
-                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={onSumbit}>
                         Submit
                       </button>
                     </div>
