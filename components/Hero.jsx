@@ -3,15 +3,23 @@
 import React from "react";
 
 import "../src/app/globals.css";
+
+
+
 import { Josefin_Sans, Outfit, Poppins } from "@next/font/google";
 import { Inter } from "next/font/google";
 
 import { motion } from "framer-motion";
 
+
 import Link from "next/link";
 import Navbar from "./Navbar";
 import { TypingText } from "./CustomTexts";
 import { fadeIn, planetVariants, staggerContainer } from "../utils/motion";
+
+
+
+
 
 const outfit = Outfit({
   weight: ["400"],
@@ -125,10 +133,14 @@ const Hero = () => {
           >
             <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
             <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+
             <Link
               href={state === "true" ? "/register" : "/login"}
               class="relative text-black group-hover:text-white"
             >
+
+            <span class="relative text-black group-hover:text-white" />
+
               Register
             </Link>
           </motion.span>

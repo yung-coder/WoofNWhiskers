@@ -1,22 +1,8 @@
-import { supabaseClient } from "../../../supabase/supabase";
+import React from "react";
+import Pets from "./Pets";
 
-async function getData() {
-  let { data, error } = await supabaseClient
-     .from('animals')
-     .select('*')
+const page = () => {
+  return <Pets />;
+};
 
-  console.log(error);
-
-  return data;
-}
-
-export default async function Page() {
-  const result = await getData();
-  console.log(result);
-
-  return (
-    <div>
-      <h1>PETS</h1>
-    </div>
-  );
-}
+export default page;

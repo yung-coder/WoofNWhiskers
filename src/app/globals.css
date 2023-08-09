@@ -22,8 +22,13 @@
 .main {
   min-height: 100vh;
   display: flex;
+
     flex-direction: column;
   background-image: url("../../public/assets/dog.jpg");
+
+  flex-direction: column;
+ 
+
   background-size: cover;
   background-position: center;
   /* object-fit: cover; */
@@ -141,4 +146,130 @@ body {
 
 .registerForm input {
   border-radius: 5px;
+}
+
+/* /////////////Pet Profile Display/////////////// */
+
+.petIcon {
+  width: 30px;
+  float: left;
+  /* background-color: aqua; */
+}
+
+.locationIconDiv {
+  /* float: left; */
+  margin-left: 50px;
+  /* background-color: green; */
+  display: inline-block;
+}
+
+.petIconDiv {
+  /* background-color: green; */
+  float: left;
+  /* height: 20px; */
+  width: 70px;
+  margin-left: 30px;
+}
+
+.petTypeName {
+  /* float: right; */
+  margin-left: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  /* display: inline-block; */
+  /* background-color: aliceblue; */
+}
+
+.locationName {
+  font-weight: bold;
+  padding-left: 30px;
+  font-size: 20px;
+}
+
+.petProfileImage {
+  width: 270px;
+  border-radius: 50%;
+}
+
+.locationIcon {
+  width: 20px;
+  float: left;
+}
+
+.petsProfileContainerContent {
+  padding-top: 10px;
+}
+.petsProfileContainer {
+  border-radius: 20px;
+  padding: 20px;
+  padding-left: 40px;
+  border: 5px solid;
+  display: inline-block;
+  /* background-image: url("../public/assets/patters.png"); */
+  /* width: 30%; */
+}
+
+.petsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 columns */
+  /* grid-template-rows: repeat(40, 1fr); Creates 40 rows */
+  gap: 20px; /* Gap between grid items */
+  position: relative;
+}
+
+.petsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100vmax;
+}
+
+.petsAdoptionTitle {
+  text-align: center;
+  font-size: 50px;
+}
+
+.PetsModalContainer {
+  overflow-x: hidden;
+  position: fixed;
+  border-radius: 20px;
+  display: flex;
+  top: 50%; /* adjust positioning as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999; /* Higher value to place the card on top */
+  width: 1000px;
+  height: 500px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.PetsModalImage img {
+  border-radius: 50%;
+  margin-left: 50px;
+  margin-top: 30px;
+  width: 400px;
+  position: absolute;
+  float: right;
+  /* background-color: green; */
+}
+
+.PetsModalInfo {
+  /* background-color: red; */
+  margin-left: 50px;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 50px;
+  line-height: 40px;
+}
+
+.petsDetailContainer {
+  background-color: red;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../public/assets/pattern.png");
+  background-size: cover;
+  background-position: center;
 }
