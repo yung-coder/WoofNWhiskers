@@ -1,4 +1,4 @@
-
+"use client";
 import "./globals.css";
 import { Josefin_Sans, Outfit, Poppins } from "@next/font/google";
 import { Inter } from "next/font/google";
@@ -7,6 +7,7 @@ import { fadeIn, staggerContainer } from "@/utils/motion";
 import { motion } from "framer-motion";
 import { slideIn } from "@/utils/motion";
 import { planetVariants } from "@/utils/motion";
+import Navbar from "@/components/Navbar";
 
 const outfit = Outfit({
   weight: ["400"],
@@ -81,10 +82,10 @@ export default function Home() {
             variants={fadeIn("up", "tween", 0.2, 1)}
             className="text-lg text-center text-white"
           >
-            Every product is built from the ground up to protect your{" "}
-            . We don't create user profiles, sell personal information or share
-            data with third parties to use for marketing or advertising. And
-            apps share only the information that you authorise.
+            Every product is built from the ground up to protect your . We don't
+            create user profiles, sell personal information or share data with
+            third parties to use for marketing or advertising. And apps share
+            only the information that you authorise.
           </motion.p>
 
           <motion.img
@@ -106,10 +107,8 @@ export default function Home() {
             href="#_"
             class="relative inline-block px-4 py-2 font-medium group"
           >
-            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0">
-            </span>
-            <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black">
-            </span>
+            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
             <span class="relative text-black group-hover:text-white">
               Adpot
             </span>
@@ -120,10 +119,8 @@ export default function Home() {
             href="#_"
             class="relative inline-block px-4 py-2 font-medium group"
           >
-            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0">
-            </span>
-            <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black">
-            </span>
+            <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+            <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
             <span class="relative text-black group-hover:text-white">
               Register
             </span>
