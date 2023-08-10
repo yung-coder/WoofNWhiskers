@@ -49,6 +49,17 @@
   /* background-attachment: fixed ; */
 }
 
+.mainpets{
+ min-height: 100vh;
+  display: flex;
+    flex-direction: column;
+  background-image: url('../../public/assets/dogbg3.jpg');
+  background-size: cover;
+  background-position: center;
+  /* object-fit: cover; */
+  background-repeat: no-repeat;
+}
+
 
 
 

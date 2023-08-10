@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import PetsProfileDisplay from "./PetsProfileDisplay";
 import PetsModal from "./PetsModal";
 import Link from "next/link";
+import Header from "../../../components/Header";
+import '../globals.css';
 
 const Pets = () => {
   const [visibility, setVisibility] = useState(0);
@@ -44,10 +46,10 @@ const Pets = () => {
   };
   console.log(visibility);
   return (
-    <div className="petsPage">
-      <h1 className="petsAdoptionTitle">Available Pets for Adoption</h1>
+    <div className="mainpets">
+      <Header title={'Available Pets for Adoption'}/>
       <div className="petsContainer">
-        <div className="petsGrid">
+        <div className="flex flex-wrap w-screen  p-5 justify-start ">
           {pets.map((pet, index) => (
             <Link href={`/pets/${index.toString()}`}>
               <PetsProfileDisplay

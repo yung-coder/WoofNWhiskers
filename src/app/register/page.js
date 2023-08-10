@@ -18,7 +18,7 @@ export default function page() {
         whileInView="show"
         viewport={{ once: "false", amount: 0.25 }}
       >
-        <Header />
+        <Header title={'Register Pets'}/>
         <motion.div
           className="w-full h-full p-6"
           variants={planetVariants("left")}
