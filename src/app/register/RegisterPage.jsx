@@ -4,6 +4,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../globals.css";
+import { v4 as uuidv4 } from "uuid";
 import { getImgProps } from "next/dist/shared/lib/get-img-props";
 import { supabaseClient } from "../../../supabase/supabase";
 
@@ -16,10 +17,10 @@ const RegisterPage = () => {
   const [selectedState, setSelectedState] = useState("");
   const [inputs, setinputs] = useState({});
 
-  const getinputs = (data) => {
+  const getinputs = async (data) => {
     let { value, name } = data.target;
     if (name === "image") {
-      value = handleFileChange(data);
+      value = await handleFileChange(data);
     }
     const input = { [name]: value };
     setinputs({ ...inputs, ...input });
@@ -113,15 +114,35 @@ const RegisterPage = () => {
     setSelectedState(selectedStateValue);
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
+    const filename = `${uuidv4()}-${file.name}`;
     if (file) {
-      const imageURL = URL.createObjectURL(file);
-      return imageURL;
+      const { data, error } = await supabaseClient
+        .storage
+        .from("petsimages")
+        .upload(`uploaded/${filename}`, file, {
+          cacheControl: "3600",
+          upsert: false,
+        });
+      const path = data.path;
+      const publicUrl = getUrl(path);
+      console.log(publicUrl);
+      return publicUrl;
     }
   };
 
-  console.log(inputs, imageURL);
+  const getUrl = (path) => {
+    const { data } = supabaseClient
+      .storage
+      .from("petsimages")
+      .getPublicUrl(`${path}`);
+
+    const url = data.publicUrl;
+    return url;
+  };
+
+  console.log(inputs);
 
   return (
     <div>
@@ -370,7 +391,10 @@ const RegisterPage = () => {
 
                   <div class="md:col-span-5 text-right">
                     <div class="inline-flex items-end">
-                      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={onSumbit}>
+                      <button
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                        onClick={onSumbit}
+                      >
                         Submit
                       </button>
                     </div>
